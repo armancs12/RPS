@@ -4,7 +4,7 @@
 [ext_resource path="res://objects/PlayerHand/MouseInput.gd" type="Script" id=2]
 [ext_resource path="res://objects/PlayerHand/KeyInput.gd" type="Script" id=3]
 [ext_resource path="res://objects/PlayerHand/PlayerHand.gd" type="Script" id=4]
-[ext_resource path="res://objects/PlayerHand/ChangeHand.gd" type="Script" id=5]
+[ext_resource path="res://objects/PlayerHand/ChangeHandRequests.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24, 24 )
@@ -14,6 +14,7 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true
 }
+index = 1
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 1, 0, 0, 1 )
@@ -25,13 +26,13 @@ texture = ExtResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TouchArea"]
 shape = SubResource( 1 )
 
-[node name="ChangeHand" type="Node" parent="."]
+[node name="ChangeHandRequests" type="Node" parent="."]
 script = ExtResource( 5 )
 
-[node name="TouchInput" type="Node" parent="ChangeHand"]
+[node name="TouchInput" type="Node" parent="ChangeHandRequests"]
 script = ExtResource( 2 )
 
-[node name="KeyInput" type="Node" parent="ChangeHand"]
+[node name="KeyInput" type="Node" parent="ChangeHandRequests"]
 script = ExtResource( 3 )
 key = "ui_up"
-[connection signal="input_event" from="TouchArea" to="ChangeHand/TouchInput" method="_on_input_event"]
+[connection signal="input_event" from="TouchArea" to="ChangeHandRequests/TouchInput" method="_on_input_event"]

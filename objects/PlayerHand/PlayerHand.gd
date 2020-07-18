@@ -1,6 +1,8 @@
-extends Node2D
+extends Hand
 
-export var index: int
+func _ready():
+	getHand(index)
 
-func _enter_tree():
-	pass
+func changeHand():
+	index = (index + 1) % 3 #3 options (Rock, Paper, Scissors)
+	getHand(index)
