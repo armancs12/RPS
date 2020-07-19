@@ -12,7 +12,6 @@ enum RESULT {
 
 func _enter_tree():
 	player = self.owner
-	connect("gameOver", player, "gameOver")
 
 func _on_PlayerHand_area_entered(area):
 	if typeof(area) == typeof(Hand):
