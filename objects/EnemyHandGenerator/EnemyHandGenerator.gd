@@ -1,14 +1,21 @@
 extends Node
 
 var timer:Timer
-var enemyHand = preload("res://objects/EnemyHand/EnemyHand.tscn")
+
 export var speed: float
 export var interval: float
 export var speedIncrement: float
+
 var enemyHandCount: int
 var incrementionCounter: float
 
+var enemyHand = preload("res://objects/EnemyHand/EnemyHand.tscn")
+var xPoses: Array = [96, 288, 480]
+var xPosIndexBefore: int
+var indexBefore: int
+
 func _enter_tree():
+	randomize()
 	timer = createTimer()
 	timer.connect("timeout", self, "onTimeout")
 
@@ -31,7 +38,22 @@ func onTimeout():
 func createEnemyHandInstance():
 	var enemyHandInstance = enemyHand.instance()
 	enemyHandInstance.speed = speed
+	
+	# Always instantiate on different x positions
+	var xPosIndex = getDifferentValue(xPosIndexBefore, 3)
+	enemyHandInstance.position.x = xPoses[xPosIndex]
+	xPosIndexBefore = xPosIndex
+	
+	# With different index as well
+	enemyHandInstance.index = getDifferentValue(indexBefore, 3)
+	indexBefore = enemyHandInstance.index
 	add_child(enemyHandInstance)
+
+func getDifferentValue(var value: float, var inRange: float) -> float:
+	var diff = floor(rand_range(0,inRange))
+	while diff == value:
+		diff = floor(rand_range(0,3))
+	return diff
 
 func setNewSpeedValues():
 	speed += speedIncrement

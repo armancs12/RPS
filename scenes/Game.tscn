@@ -19,3 +19,6 @@ position = Vector2( 480, 928 )
 index = 2
 
 [node name="EnemyHandGenerator" parent="." instance=ExtResource( 2 )]
+speed = 150.0
+interval = 400.0
+speedIncrement = 4.0
