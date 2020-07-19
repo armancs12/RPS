@@ -3,6 +3,7 @@ extends Node
 var player: Hand
 
 signal gameOver
+signal score
 
 enum RESULT {
 	lost = 0,
@@ -15,8 +16,14 @@ func _enter_tree():
 
 func _on_PlayerHand_area_entered(area):
 	if typeof(area) == typeof(Hand):
-		if !checkThrow(player, area):
-			print("lost!")
+		var result = checkThrow(player, area)
+		if result == RESULT.win:
+			area.queue_free()
+			emit_signal("score")
+		elif result == RESULT.draw:
+			area.queue_free()
+		else:
+			print(self.name, ": ", "Game Over!")
 			emit_signal("gameOver")
 
 func checkThrow(var hand1: Hand, var hand2: Hand) -> int:

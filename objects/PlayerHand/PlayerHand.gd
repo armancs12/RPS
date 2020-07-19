@@ -1,10 +1,12 @@
 extends Hand
 
 signal gameOver
+signal score
 
 func _enter_tree():
 	$ChangeHandRequests.connect("changeHand", self, "onChangeHand")
 	$Encounterer.connect("gameOver", self, "onGameOver")
+	$Encounterer.connect("score", self, "onScore")
 
 func _ready():
 	getHand(index)
@@ -15,3 +17,6 @@ func onChangeHand():
 
 func onGameOver():
 	emit_signal("gameOver")
+
+func onScore():
+	emit_signal("score")
