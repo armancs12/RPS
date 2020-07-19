@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://objects/PlayerHand/PlayerHand.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/EnemyHandGenerator/EnemyHandGenerator.tscn" type="PackedScene" id=2]
-[ext_resource path="res://objects/EnemyHandGenerator/EnemyHandGenerator.gd" type="Script" id=3]
 [ext_resource path="res://scenes/Game.gd" type="Script" id=4]
 
 [node name="Game" type="Node2D"]
@@ -20,4 +19,3 @@ position = Vector2( 240, 464 )
 index = 2
 
 [node name="EnemyHandGenerator" parent="." instance=ExtResource( 2 )]
-script = ExtResource( 3 )

@@ -1,3 +1,9 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://objects/EnemyHandGenerator/EnemyHandGenerator.gd" type="Script" id=1]
 
 [node name="EnemyHandGenerator" type="Node"]
+script = ExtResource( 1 )
+speed = 200.0
+interval = 300.0
+speedIncrement = 3.0
