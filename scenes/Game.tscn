@@ -8,14 +8,14 @@
 script = ExtResource( 4 )
 
 [node name="PlayerHand" parent="." instance=ExtResource( 1 )]
-position = Vector2( 48, 464 )
+position = Vector2( 96, 928 )
 index = 0
 
 [node name="PlayerHand2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 144, 464 )
+position = Vector2( 288, 928 )
 
 [node name="PlayerHand3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 240, 464 )
+position = Vector2( 480, 928 )
 index = 2
 
 [node name="EnemyHandGenerator" parent="." instance=ExtResource( 2 )]
