@@ -17,5 +17,5 @@ position = Vector2( 144, 464 )
 position = Vector2( 240, 464 )
 index = 2
 
-[node name="EnemyHandGenerator" type="Node" parent="." instance=ExtResource( 2 )]
+[node name="EnemyHandGenerator" parent="." instance=ExtResource( 2 )]
 script = ExtResource( 3 )
