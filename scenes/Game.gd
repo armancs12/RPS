@@ -1,6 +1,7 @@
 extends Node2D
 
 var score: int
+signal score
 
 func _enter_tree():
 	$PlayerHand.connect("gameOver", self, "onGameOver")
@@ -17,3 +18,4 @@ func onGameOver():
 func onScore():
 	score += 1
 	print(self.name, ": ", "Score: ", score)
+	emit_signal("score")
