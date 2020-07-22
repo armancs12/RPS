@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.00921659, 0.589862, 0.898618, 0.995122, 0.995392, 1 )
+colors = PoolColorArray( 0, 0, 0, 0, 1, 0.890196, 0.619608, 1, 0.960784, 0.956863, 0.952941, 0.886275, 0.734375, 0.734375, 0.734375, 0.339623, 0.8726, 0.895884, 0.97537, 0.102771, 0, 0, 0, 0, 0.972549, 0.972549, 0.972549, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+flatness = 1.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 80.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 1.0
+scale = 10.0
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+
+[node name="DestroyHandParticle" type="Particles2D"]
+pause_mode = 2
+emitting = false
+amount = 25
+one_shot = true
+speed_scale = 4.0
+explosiveness = 1.0
+randomness = 1.0
+local_coords = false
+process_material = SubResource( 5 )

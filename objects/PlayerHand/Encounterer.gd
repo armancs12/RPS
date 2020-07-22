@@ -18,13 +18,15 @@ func _on_PlayerHand_area_entered(area):
 	if typeof(area) == typeof(Hand):
 		var result = checkThrow(player, area)
 		if result == RESULT.win:
-			area.queue_free()
+			area.destroy()
 			emit_signal("score")
 		elif result == RESULT.draw:
-			area.queue_free()
+			area.destroy()
 		else:
+			player.destroy()
 			print(self.name, ": ", "Game Over!")
 			emit_signal("gameOver")
+			
 
 func checkThrow(var hand1: Hand, var hand2: Hand) -> int:
 	if hand1.index == (hand2.index + 1) % 3:

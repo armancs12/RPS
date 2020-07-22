@@ -29,8 +29,17 @@ var sprites: Array = [
 	]
 ]
 
+var destroyParticle = preload("res://objects/DestroyHandParticle.tscn")
+
 func _enter_tree():
 	skinColor = floor(rand_range(0,4))
 
 func getHand(index: int):
 	$Sprite.texture = sprites[index][skinColor]
+
+func destroy():
+	queue_free()
+	var destroyParticleInstance = destroyParticle.instance()
+	destroyParticleInstance.position = position
+	destroyParticleInstance.emitting = true
+	get_tree().get_root().add_child(destroyParticleInstance)
