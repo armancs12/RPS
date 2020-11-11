@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://objects/PlayerHand/PlayerHand.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/EnemyHandGenerator/EnemyHandGenerator.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/UI.gd" type="Script" id=3]
 [ext_resource path="res://scenes/Game.gd" type="Script" id=4]
 [ext_resource path="res://assets/themes/DefaultTheme.tres" type="Theme" id=5]
+[ext_resource path="res://objects/GameSaver/GameSaver.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Fade"
@@ -44,7 +45,9 @@ speed = 150.0
 interval = 400.0
 speedIncrement = 4.0
 
-[node name="UI" type="Control" parent="."]
+[node name="UI" type="Control" parent="." groups=[
+"Persistable",
+]]
 pause_mode = 2
 show_behind_parent = true
 anchor_right = 1.0
@@ -122,4 +125,6 @@ flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="GameSaver" parent="." instance=ExtResource( 6 )]
 [connection signal="pressed" from="UI/StartGameMenu/PlayButton" to="UI" method="_on_PlayButton_pressed"]

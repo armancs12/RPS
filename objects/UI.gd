@@ -27,3 +27,18 @@ func onGameOver():
 	$Background/Fade/AnimationPlayer.play("Fade")
 	yield($Background/Fade/AnimationPlayer, "animation_finished")
 	emit_signal("okayToEndGame")
+
+func getProps() -> Dictionary:
+	return {
+		"bgColor": {
+			"r" : $Background.color.r,
+			"g" : $Background.color.g,
+			"b" : $Background.color.b,
+		}
+	}
+
+func setProps(props: Dictionary) -> void:
+	var bgColor: Dictionary = props.get("bgColor")
+	$Background.color.r = bgColor.get("r")
+	$Background.color.g = bgColor.get("g")
+	$Background.color.b = bgColor.get("b")
