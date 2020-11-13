@@ -21,6 +21,10 @@ _global_script_class_icons={
 [application]
 
 config/name="RPS"
+config/description="Rock Paper Scissors: Endless is an arcade-reaction game about rock-paper-scissors."
+config/use_custom_user_dir=true
+config/icon="res://assets/icon/icon.png"
+config/version="0.1.0"
 
 [debug]
 
