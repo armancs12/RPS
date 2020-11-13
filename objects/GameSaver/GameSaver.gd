@@ -44,8 +44,11 @@ func loadGame() -> void:
 		
 		print_debug(self.name + ": Load Game: " + str(saveDict))
 
+
 func getSaveDict() -> Dictionary:
-	var saveDict: Dictionary = {}
+	var saveDict: Dictionary = {
+		"version": ProjectSettings.get("application/config/version")
+	}
 	for node in get_tree().get_nodes_in_group(PERSISTABLE_GROUP_NAME):
 		if node.has_method("getProps"):
 			saveDict[node.get_path()] = node.getProps()
@@ -54,4 +57,5 @@ func getSaveDict() -> Dictionary:
 func setSaveDict(saveDict: Dictionary) -> void:
 	for node in get_tree().get_nodes_in_group(PERSISTABLE_GROUP_NAME):
 		if node.has_method("setProps"):
-			node.setProps(saveDict[node.get_path()])
+			if saveDict.has(node.get_path()):
+				node.setProps(saveDict[node.get_path()])
