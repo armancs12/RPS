@@ -11,8 +11,12 @@ func _enter_tree():
 	game.connect("score", self, "onScore")
 	game.connect("gameOver", self, "onGameOver")
 
+func _ready() -> void:
+	yield(game, "gameLoad")
+	$StartGameMenu/Info/HighScore.text = "Highscore: %d" % game.highscore
 
 func onScore():
+	$Score.text = str(game.score)
 	$Background.color.h += backgroundColorIncrement
 	print(self.name, ": ", "Background Color: ", $Background.color)
 
@@ -20,6 +24,7 @@ func onScore():
 func _on_PlayButton_pressed():
 	$Background/Fade/AnimationPlayer.play_backwards("Fade")
 	$StartGameMenu.queue_free()
+	$Score.visible = true
 	emit_signal("gameStart")
 
 func onGameOver():

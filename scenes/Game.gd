@@ -1,6 +1,8 @@
 extends Node2D
 
-var score: int
+var score: int = 0
+var highscore: int = 0
+
 signal score
 signal gameLoad
 signal gameOver
@@ -21,6 +23,9 @@ func _ready() -> void:
 	emit_signal("gameLoad")
 
 func onGameOver():
+	if score > highscore:
+		highscore = score
+
 	get_tree().paused = true
 	$GameSaver.saveGame()
 	emit_signal("gameOver")
@@ -36,3 +41,11 @@ func onScore():
 func onGameStart():
 	print(self.name, ": ", "Game Started!")
 	get_tree().paused = false
+
+func getProps() -> Dictionary:
+	return {
+		"highscore": highscore
+	}
+
+func setProps(props: Dictionary) -> void:
+	highscore = props.get("highscore")
