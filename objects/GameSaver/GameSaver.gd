@@ -7,14 +7,6 @@ const SAVE_FILENAME = "save.data"
 
 var savePath = SAVE_DIR.plus_file(SAVE_FILENAME)
 
-func _enter_tree() -> void:
-	var game = self.owner
-	game.connect("gameOver", self, "onGameOver")
-	loadGame()
-
-func onGameOver() -> void:
-	saveGame()
-
 func saveGame() -> void:
 	var saveDir = Directory.new()
 	if not saveDir.dir_exists(SAVE_DIR):
