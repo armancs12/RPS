@@ -1,4 +1,5 @@
 extends Hand
+class_name PlayerHand
 
 signal gameOver
 signal score

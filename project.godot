@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Hand",
 "language": "GDScript",
 "path": "res://objects/Hand.gd"
+}, {
+"base": "Hand",
+"class": "PlayerHand",
+"language": "GDScript",
+"path": "res://objects/PlayerHand/PlayerHand.gd"
 } ]
 _global_script_class_icons={
-"Hand": ""
+"Hand": "",
+"PlayerHand": ""
 }
 
 [application]

@@ -6,19 +6,17 @@ var highscore: int = 0
 signal score
 signal gameLoad
 signal gameOver
-func _enter_tree():
-	$PlayerHand.connect("gameOver", self, "onGameOver")
-	$PlayerHand2.connect("gameOver", self, "onGameOver")
-	$PlayerHand3.connect("gameOver", self, "onGameOver")
-	
-	$PlayerHand.connect("score", self, "onScore")
-	$PlayerHand2.connect("score", self, "onScore")
-	$PlayerHand3.connect("score", self, "onScore")
 
+func _enter_tree():
+	for player in $PlayerHands.get_children():
+		if player is PlayerHand:
+			player.connect('gameOver', self, 'onGameOver')
+			player.connect('score', self, 'onScore')
 	$UI.connect("gameStart", self, "onGameStart")
-	get_tree().paused = true
 
 func _ready() -> void:
+	get_tree().paused = true
+	
 	$GameSaver.loadGame()
 	emit_signal("gameLoad")
 
