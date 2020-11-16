@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Draw.wav-e6fa87cc95320ec94d8e7bb50de50532.sample"
+
+[deps]
+
+source_file="res://assets/sounds/Draw.wav"
+dest_files=[ "res://.import/Draw.wav-e6fa87cc95320ec94d8e7bb50de50532.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=true
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

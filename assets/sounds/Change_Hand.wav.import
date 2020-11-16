@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Change_Hand.wav-b4ede9796b039b3c328e0bdf77d597f1.sample"
+
+[deps]
+
+source_file="res://assets/sounds/Change_Hand.wav"
+dest_files=[ "res://.import/Change_Hand.wav-b4ede9796b039b3c328e0bdf77d597f1.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=true
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

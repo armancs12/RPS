@@ -4,6 +4,7 @@ var player: Hand
 
 signal gameOver
 signal score
+signal draw
 
 enum RESULT {
 	lost = 0,
@@ -22,11 +23,12 @@ func _on_PlayerHand_area_entered(area):
 			emit_signal("score")
 		elif result == RESULT.draw:
 			area.destroy()
+			emit_signal("draw")
 		else:
 			player.destroy()
 			print(self.name, ": ", "Game Over!")
 			emit_signal("gameOver")
-			
+
 
 func checkThrow(var hand1: Hand, var hand2: Hand) -> int:
 	if hand1.index == (hand2.index + 1) % 3:
